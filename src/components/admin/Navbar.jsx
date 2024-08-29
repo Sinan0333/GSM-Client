@@ -4,7 +4,7 @@ function Navbar() {
     return (
         <div className="flex items-center justify-between p-4 bg-white shadow-md">
           <div className="text-lg font-semibold">Dashboard</div>
-          <div className="flex items-center">
+          <div className="mr-10 md:mr-0 flex items-center">
             <div className="ml-4 flex items-center space-x-2">
               <img
                 src="https://via.placeholder.com/40"
