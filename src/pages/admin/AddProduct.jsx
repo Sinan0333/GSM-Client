@@ -3,6 +3,7 @@ import { validateProduct } from '../../utils/productValidation';
 import { category } from '../../data/prduct';
 import { addProductApi } from '../../api/admin/productApi';
 import { base64 } from '../../utils/convert';
+import SmallLoader from '../../components/common/SmallLoader';
 
 function AddProduct() {
 
@@ -13,15 +14,16 @@ function AddProduct() {
   const [productDescription, setProductDescription] = useState('');
   const [productImage, setProductImage] = useState(null);
   const [formErrors, setFormErrors] = useState({});
+  const [isLoading,setIsLoading] = useState(false)
 
   const handleSubmit = async() => {
     const errors = validateProduct(productName, productPrice, productQuantity, productCategory, productDescription, productImage);
 
     if (Object.keys(errors).length === 0) {
+      setIsLoading(true)
       const image = await base64(productImage);
-      console.log('Form submitted successfully!');
       const response = await addProductApi({name:productName, price:productPrice, quantity:productQuantity, category:productCategory, description:productDescription, image});
-      console.log(response)
+      setIsLoading(false)
     } else {
       setFormErrors(errors);
     }
@@ -73,12 +75,14 @@ function AddProduct() {
           <input onChange={(e) => setProductImage(e.target.files[0])} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
           {formErrors.productImage && <p className="text-red-500">{formErrors.productImage}</p>}
         </div>
-
-        <button onClick={handleSubmit}  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+        {
+          isLoading ? <SmallLoader/> : <button onClick={handleSubmit}  className="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+        }
       </div>
 
     </div>
   )
 }
+
 
 export default AddProduct
