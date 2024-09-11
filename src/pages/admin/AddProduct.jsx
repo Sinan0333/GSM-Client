@@ -4,8 +4,10 @@ import { category } from '../../data/prduct';
 import { addProductApi } from '../../api/admin/productApi';
 import { base64 } from '../../utils/convert';
 import SmallLoader from '../../components/common/SmallLoader';
+import { useNavigate } from 'react-router-dom';
 
 function AddProduct() {
+  const navigate = useNavigate()
 
   const [productName, setProductName] = useState('');
   const [productPrice, setProductPrice] = useState('');
@@ -24,6 +26,7 @@ function AddProduct() {
       const image = await base64(productImage);
       const response = await addProductApi({name:productName, price:productPrice, quantity:productQuantity, category:productCategory, description:productDescription, image});
       setIsLoading(false)
+      navigate("/admin/products")
     } else {
       setFormErrors(errors);
     }
@@ -72,7 +75,7 @@ function AddProduct() {
           </div>
         <div className="relative z-0 w-full mb-5 group">
           <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="file_input">Upload Product Image</label>
-          <input onChange={(e) => setProductImage(e.target.files[0])} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+          <input onChange={(e) => setProductImage(e.target.files[0])} accept='image/*' className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
           {formErrors.productImage && <p className="text-red-500">{formErrors.productImage}</p>}
         </div>
         {
