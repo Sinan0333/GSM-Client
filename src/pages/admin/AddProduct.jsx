@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { validateProduct } from '../../utils/productValidation';
 import { category } from '../../data/prduct';
 import { addProductApi } from '../../api/admin/productApi';
+import { base64 } from '../../utils/convert';
 
 function AddProduct() {
 
@@ -17,8 +18,9 @@ function AddProduct() {
     const errors = validateProduct(productName, productPrice, productQuantity, productCategory, productDescription, productImage);
 
     if (Object.keys(errors).length === 0) {
+      const image = await base64(productImage);
       console.log('Form submitted successfully!');
-      const response = await addProductApi({name:productName, price:productPrice, quantity:productQuantity, category:productCategory, description:productDescription, image:"image hello"});
+      const response = await addProductApi({name:productName, price:productPrice, quantity:productQuantity, category:productCategory, description:productDescription, image});
       console.log(response)
     } else {
       setFormErrors(errors);
