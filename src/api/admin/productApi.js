@@ -37,3 +37,39 @@ export const addProductApi = async (data)=>{
     }
 }
 
+export const editProductApi = async (id,data)=>{
+    try {         
+        const result =  await productApi.put(`/edit/${id}`,data)          
+        return result.data 
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const blockProductApi = async (id,is_blocked)=>{
+    try {         
+        const result =  await productApi.patch(`/block/${id}`,{is_blocked})          
+        return result.data 
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const fetchAllProducts = async ()=>{
+    try {         
+        const result =  await productApi.get('/')          
+        return result.data 
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const fetchProduct = async (id)=>{
+    try {         
+        const result =  await productApi.get(`/${id}`)          
+        return result.data 
+    } catch (error) {
+        console.log(error);
+    }
+}
+

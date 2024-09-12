@@ -2,9 +2,9 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Sidebar from '../components/admin/Sidebar'
 import Navbar from '../components/admin/Navbar'
-import List from '../pages/admin/List'
 import Dashboard from '../pages/admin/Dashboard'
 import AddProduct from '../pages/admin/AddProduct'
+import ListProducts from '../pages/admin/ListProducts'
 
 function AdminRoutes() {
   return (
@@ -14,9 +14,9 @@ function AdminRoutes() {
           <Navbar />
           <div className="p-2 md:p-4 flex-1 overflow-y-auto">
             <Routes>
-              <Route path="/products" element={<List/>}/>
+              <Route path="/products" element={<ListProducts/>}/>
               <Route path="/dashboard" element={<Dashboard/>}/>
-              <Route path='/add-product' element={<AddProduct/>}/>
+              <Route path='/products/add' element={<AddProduct/>}/>
             </Routes>
           </div>
         </div>
