@@ -47,7 +47,7 @@ function ListProducts() {
                             </th>
                             <td className="px-6 py-4">
                                 {product.quantity}
-                            </td>
+                            </td>   
                             <td className="px-6 py-4">
                                 {product.category}
                             </td>
@@ -55,7 +55,7 @@ function ListProducts() {
                                 {product.price}
                             </td>
                             <td className="px-6 py-4 text-right ">
-                                <a  className="cursor-pointer font-medium text-blue-600  hover:underline mr-2">Edit</a>
+                                <a onClick={()=>navigate(`/admin/products/edit/${product._id}`)}  className="cursor-pointer font-medium text-blue-600  hover:underline mr-2">Edit</a>
                                 {product.is_blocked ? <a onClick={()=>handleBlock(product._id,false)} className="cursor-pointer font-medium text-lime-500  hover:underline">Unblock</a> : <a onClick={()=>handleBlock(product._id,true)} className="cursor-pointer font-medium text-red-600  hover:underline">Block</a>}
                             </td>
                         </tr>

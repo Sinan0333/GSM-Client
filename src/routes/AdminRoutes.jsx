@@ -5,6 +5,7 @@ import Navbar from '../components/admin/Navbar'
 import Dashboard from '../pages/admin/Dashboard'
 import AddProduct from '../pages/admin/AddProduct'
 import ListProducts from '../pages/admin/ListProducts'
+import EditProduct from '../pages/admin/EditProduct'
 
 function AdminRoutes() {
   return (
@@ -17,6 +18,7 @@ function AdminRoutes() {
               <Route path="/products" element={<ListProducts/>}/>
               <Route path="/dashboard" element={<Dashboard/>}/>
               <Route path='/products/add' element={<AddProduct/>}/>
+              <Route path='/products/edit/:id' element={<EditProduct/>}/>
             </Routes>
           </div>
         </div>

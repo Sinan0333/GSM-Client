@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { validateProduct } from '../../utils/productValidation';
-import { category } from '../../data/prduct';
+import { category } from '../../data/product';
 import { addProductApi } from '../../api/admin/productApi';
 import { base64 } from '../../utils/convert';
 import SmallLoader from '../../components/common/SmallLoader';
