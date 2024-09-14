@@ -11,9 +11,9 @@ function AdminRoutes() {
   return (
     <div className="flex h-screen bg-gray-100">
         <Sidebar/>
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col w-screen">
           <Navbar />
-          <div className="p-2 md:p-4 flex-1 overflow-y-auto">
+          <div className="p-2 md:p-4 w-full overflow-y-auto ">
             <Routes>
               <Route path="/products" element={<ListProducts/>}/>
               <Route path="/dashboard" element={<Dashboard/>}/>

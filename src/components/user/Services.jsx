@@ -25,7 +25,7 @@ const services = [
 
 function Services() {
   return (
-    <div className="py-16 px-8 bg-white text-center min-h-screen flex flex-col justify-center">
+    <div className="py-16 px-8 bg-white text-center min-h-screen flex flex-col justify-center ">
         <div >
         <h2 className="text-3xl font-bold text-black mb-4">
             Who we are ?

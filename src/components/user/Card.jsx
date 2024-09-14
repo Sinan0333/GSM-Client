@@ -2,9 +2,9 @@ import React from 'react'
 
 function Card() {
   return (
-    <div className="max-w-80 w-full bg-white rounded-lg shadow-lg overflow-hidden ">
+    <div className="max-w-52 sm:max-w-80 w-full bg-white rounded-lg shadow-lg overflow-hidden ">
         <div>
-            <img className="object-cover h-64 w-full" src="/images/amt.jpg" alt="Converse sneakers" />
+            <img className="object-cover h w-full" src="/images/amt.jpg" alt="Converse sneakers" />
         </div>
 
         <div className="flex flex-col gap-1 mt-4 px-4 mb-2 text-center">
