@@ -31,7 +31,7 @@ function Services() {
             Who we are ?
         </h2>
         <p className="text-xl font-semibold text-gray-700 mb-8">
-            <span className="text-blue-500 text-2xl">Demo Name</span> is a professional online gsm store. We offer software/hardware solutions and equipment for GSM mobile phones servicing.
+            <span className='group cursor-default'> <span className='text-2xl font-bold group-hover:text-blue-500 transition duration-700'>GSM</span> <span className='text-2xl font-bold text-blue-500 group-hover:text-black transition duration-700'>NESI</span></span> is a professional online gsm store. We offer software/hardware solutions and equipment for GSM mobile phones servicing.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

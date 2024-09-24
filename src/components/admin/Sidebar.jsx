@@ -22,7 +22,7 @@ function Sidebar() {
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 `}
       >
-        <h1 className="text-2xl font-semibold mb-8 block">Admin Dashboard</h1>
+         <h2 className='mb-8 text-center'><span className='group cursor-default'> <span className='text-3xl font-bold group-hover:text-blue-500 transition duration-700'>GSM</span> <span className='text-3xl font-bold text-blue-500 group-hover:text-black transition duration-700'>NESI</span></span></h2>
         <div className='w-full flex-col justify-center '>
           <button onClick={() => navigate('/admin')} type="button" className="text-blue-700 w-full hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
             Dashboard

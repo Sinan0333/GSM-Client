@@ -15,6 +15,7 @@ function AdminRoutes() {
           <Navbar />
           <div className="p-2 md:p-4 w-full overflow-y-auto ">
             <Routes>
+              <Route path="/" element={<Dashboard/>}/>
               <Route path="/products" element={<ListProducts/>}/>
               <Route path="/dashboard" element={<Dashboard/>}/>
               <Route path='/products/add' element={<AddProduct/>}/>
