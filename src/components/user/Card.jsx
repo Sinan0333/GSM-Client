@@ -1,9 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 // {`${import.meta.env.VITE_CLOUDINARY_BASE_URL}/${product.image}`}
 
-function Card({name,price,image}) {
+function Card({id,name,price,image}) {
+  const navigate = useNavigate()
   return (
-    <div className="max-w-52 sm:max-w-80 w-full bg-white rounded-lg  overflow-hidden cursor-pointer">
+    <div onClick={()=>navigate(`/product/${id}`)}  className="max-w-52 sm:max-w-80 w-full bg-white rounded-lg  overflow-hidden cursor-pointer">
         <div className='mt-4'>
             <img className="object-cover h-40 w-64" src={`${import.meta.env.VITE_CLOUDINARY_BASE_URL}/${image}`} alt="Converse sneakers" />
         </div>

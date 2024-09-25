@@ -11,7 +11,7 @@ function Cards({products,expBtn,title}) {
         <div className=' mx-3 sm:mx-10 my-10 grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
             {
               products.map((product)=>(
-                <Card key={product._id} name={product.name} price={product.price} image={product.image}/>
+                <Card key={product._id} id={product._id} name={product.name} price={product.price} image={product.image}/>
               ))
             }
         </div>
