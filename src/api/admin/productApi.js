@@ -6,26 +6,36 @@ const productApi= axios.create({
     baseURL
 })
 
-// doctorApi.interceptors.request.use(
+productApi.interceptors.request.use(
 
-//     (config)=>{
+    (config)=>{
         
-//     const userToken = localStorage.getItem('userToken')
+    const token = localStorage.getItem('token')
 
-//     if(userToken){
-//         config.headers['Authorization'] = `Bearer ${userToken}`;
-//     }
+    if(token){
+        config.headers['Authorization'] = `Bearer ${token}`;
+    }
 
-//     return config
+    return config
 
-//     },
+    },
 
-//     (error)=>{
-//         return Promise.reject(error)
-//     }
-// )
+    (error)=>{
+        return Promise.reject(error)
+    }
+)
 
-// doctorApi.interceptors.response.use(handleApiResponse,handleUserApiError);
+
+productApi.interceptors.response.use(response => {
+    return response;
+ }, error => {
+    console.log("unauthorized")
+   if (error.response.status === 401) {
+    localStorage.removeItem("token")
+    window.location.href = '/auth/login';
+   }
+   return error;
+ });
 
 
 export const addProductApi = async (data)=>{

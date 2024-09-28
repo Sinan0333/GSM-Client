@@ -6,6 +6,7 @@ import Dashboard from '../pages/admin/Dashboard'
 import AddProduct from '../pages/admin/AddProduct'
 import ListProducts from '../pages/admin/ListProducts'
 import EditProduct from '../pages/admin/EditProduct'
+import { AdminIsLoggedIn } from '../components/common/ProtectRoute'
 
 function AdminRoutes() {
   return (
@@ -15,11 +16,13 @@ function AdminRoutes() {
           <Navbar />
           <div className="p-2 md:p-4 w-full overflow-y-auto ">
             <Routes>
-              <Route path="/" element={<Dashboard/>}/>
-              <Route path="/products" element={<ListProducts/>}/>
-              <Route path="/dashboard" element={<Dashboard/>}/>
-              <Route path='/products/add' element={<AddProduct/>}/>
-              <Route path='/products/edit/:id' element={<EditProduct/>}/>
+              <Route path='/' element = {<AdminIsLoggedIn/>}>
+                <Route path="/" element={<Dashboard/>}/>
+                <Route path="/products" element={<ListProducts/>}/>
+                <Route path="/dashboard" element={<Dashboard/>}/>
+                <Route path='/products/add' element={<AddProduct/>}/>
+                <Route path='/products/edit/:id' element={<EditProduct/>}/>
+              </Route>
             </Routes>
           </div>
         </div>
