@@ -58,7 +58,7 @@ function EditProduct() {
       <div className='w-full h-full bg-white'>
         <h1 className='text-center text-2xl pt-2 font-bold'>Edit Product</h1> 
         <div className='w-full h-96 mx-auto p-4'>
-            <img src={productOldImage} className='w-full h-full object-cover' alt="" />
+            <img src={productOldImage} className='w-full h-full object-contain' alt="" />
         </div>
   
         <div className="w-full p-6 mx-auto">
